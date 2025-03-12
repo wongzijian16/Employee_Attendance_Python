@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>Display All Employee Attendance</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            th, td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #DDD;
+            }
+
+            tr:hover {background-color: #D6EEEE;}
+
+            th {
+                background-color: cadetblue;
+                color: white;
+            }
+
+            input[type=text] {
+                width: 130px;
+                box-sizing: border-box;
+                border: 2px solid #ccc;
+                border-radius: 4px;
+                font-size: 16px;
+                background-color: white;
+
+                background-position: 10px 10px; 
+                background-repeat: no-repeat;
+                padding: 12px 20px 12px 40px;
+                -webkit-transition: width 0.4s ease-in-out;
+                transition: width 0.4s ease-in-out;
+            }
+
+            input[type=text]:focus {
+                width: 100%;
+            }
+        </style>
+
+    </head>
+    <body>
+
+         <form  class="nav-link" action="/DisplayAll" method="POST"><button type='submit'></button></form>
+         <form  class="nav-link" action="/AddAttendance" method="POST"><button type='submit'></button></form>
+         <form  class="nav-link" action="/DisplayAttendance" method="POST"><button type='submit'></button></form>
+         
+        <form class="example" action="/DisplayAll" method="POST" autocomplete="on">
+            
+            <table>
+
+                <tr>
+                    <th>Attendance ID</th>
+                    <th>Customer Name</th>
+                    <th>Date</th>
+                    <th>Time In</th>
+                    <th>Time Out</th>
+                    <th>Benefits</th>
+                </tr>
+
+
+                {% for row in data %}
+
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td>
+                    <td>{{ row[5] }}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </form>
+    </body>
+</html>
